@@ -1,15 +1,1064 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>Jade Intelligence - Leading AI Biocomputing Platform</title>
+    <meta name="description" content="Jade Intelligence revolutionizes healthcare with AI-powered biocomputing solutions for personalized medicine, protein design, and biological discovery.">
+    <meta name="keywords" content="AI biocomputing, precision medicine, protein design, CRISPR-Cas, tumor vaccine, multi-omics analysis">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #059669;
+            text-decoration: none;
+        }
+
+        /* 修改logo样式以适配SVG图片 */
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.05);
+        }
+
+        .logo:hover .logo-icon img {
+            transform: rotate(5deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #1f2937;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #059669;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #059669;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #f9fafb;
+            color: #059669;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* About */
+        .about {
+            background: #f9fafb;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #059669;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .about-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Solutions */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .solution-header {
+            padding: 3rem 2rem 2rem;
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            text-align: center;
+        }
+
+        .solution-number {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .solution-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .solution-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .solution-content {
+            padding: 2rem;
+        }
+
+        .solution-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #6b7280;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .solution-features li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        /* Technology */
+        .technology {
+            background: #f9fafb;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 20px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .tech-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .tech-item p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Services */
+        .services {
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 4rem;
+        }
+
+        .service-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #059669;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 25px;
+        }
+
+        .service-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .service-description {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .service-list li {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact {
+            background: #0f172a;
+            color: white;
+        }
+
+        .contact .section-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-item {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item h4 {
+            margin-bottom: 1.5rem;
+            color: #10b981;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #10b981;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tech-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .container,
+            .services-container {
+                padding: 0 15px;
+            }
+        }
+
+        /* 动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 额外的视觉增强 */
+        .hero-badge {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Hover effects for cards */
+        .about-card:hover .about-card-icon,
+        .tech-item:hover .tech-icon,
+        .service-item:hover .service-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .solution-card:hover .solution-header {
+            background: linear-gradient(135deg, #047857, #059669);
+        }
+
+        /* Focus states for accessibility */
+        .btn:focus,
+        .nav-menu a:focus,
+        .logo:focus {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
-
 <body>
-    index
-</body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <!-- 替换为本地logo.svg文件 -->
+                    <img src="logo.png" alt="Jade Intelligence Logo" />
+                </div>
+                <span>Jade Intelligence</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#services">Our Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
 
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <!-- <span>🚀</span> -->
+                    <span>Next-Generation Biocomputing Platform</span>
+                </div>
+                <h1>Jade Intelligence</h1>
+                <div class="hero-subtitle">A Vanguard Biocomputing Platform</div>
+                <p class="hero-description">
+                    Revolutionizing personalized medicine through AI-powered biological discovery and design. 
+                    <strong>Discover & Design for Life</strong> with cutting-edge biotechnology solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#solutions" class="btn btn-primary">
+                        <span>Explore Solutions</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">About Us</div>
+                <h2 class="section-title">Pioneering the Future of Medicine</h2>
+                <p class="section-subtitle">
+                    Leveraging heterogeneous computing and large-scale AI models to provide data-driven decisions 
+                    for personalized therapy and next-generation healthcare ecosystems.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="about-card-icon">🎯</div>
+                    <h3>Our Vision</h3>
+                    <p>Let everyone live better through precision medicine and personalized healthcare solutions powered by advanced AI and biocomputing technologies.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-card-icon">🚀</div>
+                    <h3>Our Mission</h3>
+                    <p>Provide decision engines for precise regulation of life systems, enabling breakthrough discoveries in biologics and personalized medicine.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-card-icon">⚡</div>
+                    <h3>Our Approach</h3>
+                    <p>Combining cutting-edge AI, heterogeneous computing, and deep biological insights to accelerate drug discovery and personalized treatment development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Our Solutions</div>
+                <h2 class="section-title">AI-Driven Healthcare Platforms</h2>
+                <p class="section-subtitle">
+                    Three core AI-driven platforms revolutionizing personalized medicine and biological design
+                </p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-number">Solution 01</div>
+                        <h3>AI-Driven Tumor Vaccine Decision Engine</h3>
+                        <p>Personalized cancer immunotherapy platform</p>
+                    </div>
+                    <div class="solution-content">
+                        <p class="solution-description">Our advanced platform analyzes patient-specific genomic data to design personalized tumor vaccines, significantly improving treatment outcomes for cancer patients.</p>
+                        <ul class="solution-features">
+                            <li>Personalized neoantigen discovery and validation</li>
+                            <li>Multi-omics data integration and analysis</li>
+                            <li>Clinical validation with 200+ patients analyzed</li>
+                            <li>Improved treatment accessibility and outcomes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-number">Solution 02</div>
+                        <h3>AI-Driven Functional Protein Design Engine</h3>
+                        <p>Next-generation protein engineering platform</p>
+                    </div>
+                    <div class="solution-content">
+                        <p class="solution-description">Revolutionary protein design capabilities using AI to discover and engineer novel functional proteins for therapeutic and biotechnology applications.</p>
+                        <ul class="solution-features">
+                            <li>Novel CRISPR-Cas protein discovery and optimization</li>
+                            <li>Patent-space analysis and IP optimization</li>
+                            <li>High-accuracy protein structure prediction</li>
+                            <li>Accelerated development timelines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-number">Solution 03</div>
+                        <h3>AI Personalized Health Management System</h3>
+                        <p>Comprehensive precision health platform</p>
+                    </div>
+                    <div class="solution-content">
+                        <p class="solution-description">Integrated health management system combining multi-omics analysis, traditional medicine insights, and AI-driven health predictions.</p>
+                        <ul class="solution-features">
+                            <li>5-year disease risk prediction models</li>
+                            <li>Comprehensive multi-omics health analysis</li>
+                            <li>Personalized intervention strategies</li>
+                            <li>Global expert network access and consultation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="section technology">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Core Technologies</div>
+                <h2 class="section-title">Breakthrough Technologies</h2>
+                <p class="section-subtitle">
+                    Advanced AI and computing technologies powering breakthrough biological discoveries
+                </p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">🧬</div>
+                    <h3>Heterogeneous Computing</h3>
+                    <p>Ultra-fast genomic analysis using proprietary parallel computing architectures and domestic chip compatibility for scalable solutions.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">🤖</div>
+                    <h3>AI Pattern Recognition</h3>
+                    <p>Advanced machine learning models for unbiased discovery of biological patterns and therapeutic targets with high precision.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">💊</div>
+                    <h3>Generative Biology</h3>
+                    <p>AI-powered design of novel biologics including RNA therapeutics and functional proteins for next-generation treatments.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">📊</div>
+                    <h3>Multi-Omics Integration</h3>
+                    <p>Comprehensive analysis of genomic, proteomic, and metabolomic data for personalized insights and precision medicine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+        <div class="services-container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Our Services</div>
+                <h2 class="section-title">Comprehensive Service Portfolio</h2>
+                <p class="section-subtitle">
+                    End-to-end AI-powered biological services designed to accelerate research and development
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3>Multi-Omics Data Analysis</h3>
+                    <p class="service-description">Comprehensive analysis and interpretation of complex biological datasets using advanced computational pipelines and AI-driven insights.</p>
+                    <ul class="service-list">
+                        <li>RNA-seq transcriptome analysis and interpretation</li>
+                        <li>WES (Whole Exome Sequencing) variant calling and annotation</li>
+                        <li>WGS (Whole Genome Sequencing) comprehensive analysis</li>
+                        <li>Single-cell sequencing data processing and visualization</li>
+                        <li>Multi-modal data integration and pathway analysis</li>
+                    </ul>
+                </div>
+
+                <div class="service-item fade-in">
+                    <div class="service-icon">🧬</div>
+                    <h3>siRNA & mRNA Sequence Design</h3>
+                    <p class="service-description">AI-powered design of optimized RNA sequences for therapeutic and research applications with enhanced efficacy and reduced off-target effects.</p>
+                    <ul class="service-list">
+                        <li>siRNA design with minimal off-target effects</li>
+                        <li>mRNA sequence optimization for stability and expression</li>
+                        <li>Codon optimization for enhanced protein production</li>
+                        <li>Secondary structure prediction and optimization</li>
+                        <li>Delivery system compatibility assessment</li>
+                    </ul>
+                </div>
+
+                <div class="service-item fade-in">
+                    <div class="service-icon">🔬</div>
+                    <h3>Functional Protein/Enzyme Design</h3>
+                    <p class="service-description">Advanced AI-driven design and optimization of functional proteins and enzymes for gene editing, biotechnology, and therapeutic applications.</p>
+                    <ul class="service-list">
+                        <li>Novel CRISPR-Cas system discovery and engineering</li>
+                        <li>Pfu polymerase and thermostable enzyme optimization</li>
+                        <li>Custom protein design for specific applications</li>
+                        <li>Structure-function relationship analysis</li>
+                        <li>Protein stability and activity enhancement</li>
+                    </ul>
+                </div>
+
+                <div class="service-item fade-in">
+                    <div class="service-icon">🧪</div>
+                    <h3>Antibody Design & Engineering</h3>
+                    <p class="service-description">Cutting-edge antibody design and optimization services leveraging AI and computational biology for therapeutic and research applications.</p>
+                    <ul class="service-list">
+                        <li>Phage display library design and optimization</li>
+                        <li>Antibody affinity maturation and engineering</li>
+                        <li>Humanization and stability improvement</li>
+                        <li>Bispecific and multi-specific antibody design</li>
+                        <li>Developability assessment and optimization</li>
+                    </ul>
+                </div>
+
+                <div class="service-item fade-in">
+                    <div class="service-icon">🎯</div>
+                    <h3>Personalized Tumor Neoantigen Discovery</h3>
+                    <p class="service-description">Comprehensive analysis of patient-specific tumor neoantigens to support personalized cancer immunotherapy development and clinical research.</p>
+                    <ul class="service-list">
+                        <li>Analysis of over 200 patient datasets completed</li>
+                        <li>Multi-omics data integration and analysis</li>
+                        <li>Clinical research support and validation</li>
+                        <li>Personalized vaccine design recommendations</li>
+                        <li>HLA typing and binding prediction algorithms</li>
+                    </ul>
+                </div>
+
+                <div class="service-item fade-in">
+                    <div class="service-icon">💻</div>
+                    <h3>Custom AI Biology Platform</h3>
+                    <p class="service-description">Enterprise-focused AI platform development to help organizations leverage proprietary data and build private data assets for biological research.</p>
+                    <ul class="service-list">
+                        <li>Private data integration and management systems</li>
+                        <li>Custom AI model development for specific needs</li>
+                        <li>Proprietary algorithm implementation</li>
+                        <li>Data asset monetization strategies</li>
+                        <li>Scalable cloud-based deployment solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Get in Touch</div>
+                <h2 class="section-title">Ready to Transform ?</h2>
+                <p class="section-subtitle">
+                    Connect with our team to explore how AI-powered biocomputing can revolutionize your research and development initiatives.
+                </p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <h4>📧 Email Contact</h4>
+                    <p><a href="mailto:info@qunyuint.net">info@qunyuint.net</a></p>
+                </div>
+                <div class="contact-item fade-in">
+                    <h4>🌐 Jade in X/TikTok</h4>
+                    <p><strong>Coming Soon</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2021-2025 Jade Intelligence. All rights reserved. | AI for Life</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add subtle entrance animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.about-card, .solution-card, .tech-item, .service-item');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
 </html>
